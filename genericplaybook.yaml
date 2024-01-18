@@ -50,7 +50,7 @@
   vars:
     nbde_client_bindings:
       - device: /dev/vda3
-        encryption_password: <PASSWORD>
+        encryption_password: <LUKS PASSWORD>
         servers: 
           - http://fedora.home.io
   roles:
@@ -118,10 +118,10 @@
   - name: Set VNC Password for user
     ansible.builtin.shell: |
       set -o pipefail
-      echo "<CHANGE ME>" | vncpasswd -f > /home/<CHANGE ME>/.vnc/passwd
+      echo "<VNC PASSWORD>" | vncpasswd -f > /home/<USERNAME>/.vnc/passwd
     args:
       executable: /bin/bash
-      creates: /home/<CHANGE ME>>/.vnc/passwd
+      creates: /home/<USERNAME>/.vnc/passwd
 
 - name: Set correct permissions for VNC passwd file
   hosts: workstation
