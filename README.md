@@ -11,6 +11,7 @@ I finally got around to creating an ansible playbook that will set up my Fedora 
    * linux_system_roles
    * jaredhocutt.gnome_extensions
    * community.general
-8. On this Ansible PC, pull down the playbook file named genericplaybook.yaml located in this github repository and save it as playbook.yaml.  Next, create an inventory.ini file.  There are great documents on how to create inventory files online.
-9. Edit the playbook.  Search for PASSWORD.  <LUKS PASSWORD> is the password to unlock your HDD at boot.  <VNC PASSWORD> is the password you want to use VNC/XRDP.  <USERNAME> is the username of the person running the playbook.  I think these can be variablized but I haven't tried it yet.  DO NOT INCLUDE THE BRACES <> WITH THE PASSWORDS OR USERNAMES BUT LEAVE QUOTES IF THEY ARE THERE.  Save the file.
-10. Run this playbook with `ansible-playbook --ask-become-pass -i inventory.ini playbook.yaml`
+8. On this Ansible PC, pull down the playbook file named genericplaybook.yaml located in this github repository and save it as playbook.yaml.  Next, download the inventory.ini file.
+9. Edit the inventory.ini file and replace the IP address in the "workstation" section with the IP address of your new, base Fedora Workstation system.
+10. Edit the playbook.  Search for PASSWORD.  <LUKS PASSWORD> is the password to unlock your HDD at boot.  <VNC PASSWORD> is the password you want to use VNC/XRDP.  <USERNAME> is the username of the person running the playbook.  I think these can be variablized but I haven't tried it yet.  DO NOT INCLUDE THE BRACES <> WITH THE PASSWORDS OR USERNAMES BUT LEAVE QUOTES IF THEY ARE THERE.  Save the file.
+11. Run this playbook with `ansible-playbook --ask-become-pass -i inventory.ini playbook.yaml`
